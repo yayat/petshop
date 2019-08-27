@@ -36,6 +36,10 @@ module.exports = {
         let getParams = req.params, postParams = req.payload, queryParams = req.query, headers = req.headers; addSetQuery = '', addValQuery = '';
         auth.action(req, reply)
     },
+    checkSession: function(req, reply){
+        let getParams = req.params, postParams = req.payload, queryParams = req.query, headers = req.headers; addSetQuery = '', addValQuery = '';
+        auth.getSession(postParams.token, reply)
+    },
     getUser: function(req, reply){
         let getParams = req.params, postParams = req.payload, queryParams = req.query, headers = req.headers; addSetQuery = '', addValQuery = '';
         // for paging

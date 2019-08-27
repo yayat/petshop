@@ -42,8 +42,18 @@ async.parallel({
 				console.log('# mongo | ='+conf.serverType+'= | connected | Host: '+ conf.mongoPs.dbHost + ' | DB: '+ conf.mongoPs.dbName);
 				
 				const User = require('./../models/user');
+				const Grooming = require('./../models/grooming');
+				const Transaction = require('./../models/transaction');
+				const Clinic = require('./../models/clinic');
+				const Hotel = require('./../models/hotel');
+				const Petshop = require('./../models/petshop');
 
+				objExport.Grooming = mongoPs.model('Grooming', Grooming);
+				objExport.Transaction = mongoPs.model('Transaction', Transaction);
+				objExport.Clinic = mongoPs.model('Clinic', Clinic);
 				objExport.User = mongoPs.model('User', User);
+				objExport.Hotel = mongoPs.model('Hotel', Hotel);
+				objExport.Petshop = mongoPs.model('Petshop', Petshop);
 				cb();
 				
 			} else {

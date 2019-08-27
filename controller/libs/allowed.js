@@ -4,6 +4,8 @@ module.exports ={
     login: true,
     grooming: true,
     clinic: true,
-    hotel: true
+    hotel: true,
+    checkSession: true,
+    transaction: true
   }
 }

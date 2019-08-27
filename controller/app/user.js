@@ -7,7 +7,8 @@ const md5 = require('md5');
 const passwordHash = require('password-hash');
 const moment = require('moment');
 const helper = require('./../libs/helper');
-const allowAuth = require('./../libs/allowed')
+const allowAuth = require('./../libs/allowed');
+const auth = require('./auth');
 // console.log(allowAuth.allow['register'])
 
 let model = require('./../../routes/model');
@@ -30,6 +31,10 @@ module.exports = {
             });
         }
         
+    },
+    login: function(req, reply){
+        let getParams = req.params, postParams = req.payload, queryParams = req.query, headers = req.headers; addSetQuery = '', addValQuery = '';
+        auth.action(req, reply)
     },
     getUser: function(req, reply){
         let getParams = req.params, postParams = req.payload, queryParams = req.query, headers = req.headers; addSetQuery = '', addValQuery = '';

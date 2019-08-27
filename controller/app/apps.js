@@ -33,14 +33,51 @@ module.exports = {
     },
     grooming: function(req, reply){
         let getParams = req.params, postParams = req.payload, queryParams = req.query, headers = req.headers; addSetQuery = '', addValQuery = '';
+        model.Grooming.find()
+        .lean()
+        .exec(function(err, res){
+            if(err){
+                secure.error(reply, err)
+                return
+            }
+            secure.success(reply, res, count)
+        })
     },
     clinic: function(req, reply){
         let getParams = req.params, postParams = req.payload, queryParams = req.query, headers = req.headers; addSetQuery = '', addValQuery = '';
+        model.Clinic.find()
+        .lean()
+        .exec(function(err, res){
+            if(err){
+                secure.error(reply, err)
+                return
+            }
+            secure.success(reply, res, count)
+        })
     },
     hotel: function(req, reply){
         let getParams = req.params, postParams = req.payload, queryParams = req.query, headers = req.headers; addSetQuery = '', addValQuery = '';
+        model.Hotel.find()
+        .lean()
+        .exec(function(err, res){
+            if(err){
+                secure.error(reply, err)
+                return
+            }
+            secure.success(reply, res, count)
+        })
     },
     transaction: function(req, reply){
         let getParams = req.params, postParams = req.payload, queryParams = req.query, headers = req.headers; addSetQuery = '', addValQuery = '';
+        if (!model || model.Transaction === undefined) model = require('./../../routes/model');
+        model.Transaction.find()
+        .lean()
+        .exec(function(err, res){
+            if(err){
+                secure.error(reply, err)
+                return
+            }
+            secure.success(reply, res)
+        })
     }
 }

@@ -82,9 +82,10 @@ module.exports = {
 			if(res && res.length > 0){
 				let jsonObject = dev.json(res[0]);
 				let directoryAuth = path.join(__dirname, '../../cookies');
-				let token = dev.util.token();
+				// let token = dev.util.token();
+				let token = 'e10adc3949ba59abbe56e057f20f883e';
 				jsonObject.expired = moment().add(8, 'hours').format('x');
-				jsonObject.key = jsonObject._id;
+				jsonObject.id = jsonObject._id;
 				delete jsonObject.pwd;
 				delete jsonObject._id;
 				jsonfile.writeFileSync(directoryAuth +'/'+ token + '.json', jsonObject);

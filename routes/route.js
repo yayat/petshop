@@ -51,7 +51,7 @@ const routes = [
 		config: {
 			handler: function(req, reply) {
 				console.log('-auth-')
-				userController.action(req,reply)
+				appsController.action(req,reply)
 			}
 		}
 	}
